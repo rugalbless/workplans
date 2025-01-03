@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('workout_exercises', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('workout_plan_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('exercise_id')->constrained();
+            $table->integer('sets');
+            $table->integer('reps');
+            $table->decimal('weight',5,2)->nullable();
+            $table->text('notes')->nullable();
+            $table->integer('order_position');
             $table->timestamps();
         });
     }

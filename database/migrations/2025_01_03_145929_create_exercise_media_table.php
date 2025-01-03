@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('exercise_media', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('exercise_id')->constrained()->cascadeOnDelete();
+            $table->string('file_path');
+            $table->enum('type', ['image', 'audio', 'video', 'document']);
             $table->timestamps();
         });
     }
