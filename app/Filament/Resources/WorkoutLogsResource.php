@@ -23,9 +23,6 @@ class WorkoutLogsResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('user_id')
-                    ->relationship('user', 'name')
-                    ->required(),
                 Forms\Components\Select::make('workout_plan_id')
                     ->relationship('workoutPlan', 'name')
                     ->required(),
